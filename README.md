@@ -13,7 +13,7 @@ Se trata de um jogo da velha desenvolvido em javascript.
 
 ## Representação dos Jogadores
 
-- Usuário 1 ou Usuário sempre serão representado por 'X'
+- Usuário 1 ou Usuário sempre serão representados por 'X'
 - Computador ou Usuário 2 sempre serão representados por 'O'
 
 ## Posições das Jogadas no Tabuleiro (Matriz)
