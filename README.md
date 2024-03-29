@@ -1,4 +1,4 @@
-## Jogo-da-Velha
+# Jogo-da-Velha
 Se trata de um jogo da velha desenvolvido em javascript.
 
 # Rodando o Jogo da Velha. . . 
