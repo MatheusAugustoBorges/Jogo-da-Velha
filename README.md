@@ -26,30 +26,30 @@ Veja a representação a seguir:
 - Para ganhar é necessário completar uma linha com jogadas de um mesmo jogador
 Exemplo de Usuário 1 (Jogador 1) ganhando pela 3° linha.
 
-% % %
-% % %
-X X X 
+% % % <br/>
+% % % <br/>
+X X X <br/>
 
 - Para ganhar é necessário completar uma coluna com jogadas de um mesmo jogador
 Exemplo de Usuário 2 (Jogador 2) ganhando pela 3° linha.
 
-% % O
-% % O
-% % O 
+% % O <br/>
+% % O <br/>
+% % O <br/>
 
 - Para ganhar é necessário completar a diagonal principal com jogadas de um mesmo jogador
 Exemplo de Usuário 1 (Jogador 1) ganhando pela diagonal principal.
 
-X % %
-% X %
-% % X
+X % % <br/>
+% X % <br/>
+% % X <br/>
 
 - Para ganhar é necessário completar a diagonal secundária com jogadas de um mesmo jogador
 Exemplo de Usuário 2 (Jogador 2) ganhando pela diagonal secundária.
 
-% % O
-% O %
-O % %
+% % O <br/>
+% O % <br/>
+O % % <br/>
 
 # Para sair do Jogo da Velha
 
