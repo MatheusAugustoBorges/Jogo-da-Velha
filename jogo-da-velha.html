@@ -1,0 +1,256 @@
+<meta charset = "UTF-8">
+
+<script>
+  function montaMatrizInicial() {
+    let M = new Array(3);
+    for (let lin=0; lin<3; lin+=1) {
+      M[lin] = []
+      for (let col=0; col<3; col+=1) {
+        M[lin][col] = "#";
+      }
+    }
+    return M;
+  }
+  
+  function imprimeMatriz(M) {
+    let printedMatriz = "\nMatriz Atual de Jogo: \n\n";
+    for (let lin=0; lin<3; lin+=1) {
+      for (let col=0; col<3; col+=1) {
+        printedMatriz += M[lin][col];
+        printedMatriz += " ";
+      }
+      printedMatriz += "\n";
+    }
+    alert(printedMatriz + "\n");
+  }
+  
+  function montaMatrizIntermediaria(M, jogador, linX, colX) {
+    let marcacao = "";
+    //let printedMatriz = "Matriz Atualizada do Jogo: \n\n";
+    for (let lin=0; lin<3; lin+=1) {
+      for (let col=0; col<3; col+=1) {
+        if(jogador == 1) {
+          marcacao = "X";
+        } else {
+          marcacao = "O";
+        }
+        M[linX-1][colX-1] = marcacao;
+      }
+    }
+    return M;
+  }
+  
+  function verificaGanhador(M, jogador) {
+    let resultado = "";
+    for (let i=0; i<3; i+=1) {
+      // Verfica linhas
+      if (M[i][0] === M[i][1] && M[i][0] === M[i][2] && M[i][0] !== '#') {
+        resultado = "Parabéns!!!\nJogador " + jogador + " venceu essa partida completando uma linha!";
+      }
+      // Verfica colunas
+      if (M[0][i] === M[1][i] && M[0][i] === M[2][i] && M[0][i] !== '#') {
+        resultado = "Parabéns!!!\nJogador " + jogador + " venceu essa partida completando uma coluna!";
+      }
+    }
+    // Verfica diagonal principal
+    if (M[0][0] === M[1][1] && M[0][0] === M[2][2] && M[0][0] !== '#') {
+      resultado = "Parabéns!!!\nJogador " + jogador + " venceu essa partida completando a diagonal principal!";
+    }
+    // Verfica diagonal secundária
+    if (M[0][2] === M[1][1] && M[0][2] === M[2][0] && M[0][2] !== '#') {
+      resultado = "Parabéns!!!\nJogador " + jogador + " venceu essa partida completando a diagonal secundária!";
+    }
+    return resultado;
+  }
+  
+  function verificaEmpate(M) {
+    let empate = 1;
+    for (let lin=0; lin<3; lin+=1) {
+      for (let col=0; col<3; col+=1) {
+        if(M[lin][col] === "#") {
+          empate = 0;
+        }
+      }
+    }
+    return empate;
+  }
+  
+  function verificaPosicaoIncorreta(lin, col) {
+    let verificaPosicao = 0;
+    if((lin<1 || lin>3) || (col<1 || col>3)) {
+      verificaPosicao = 1;
+    }
+    return verificaPosicao;
+  }
+  
+  function verificaJogadaExistente(M, lin, col) {
+    let verificaJogada = 0;
+    if(M[lin-1][col-1] === "X" || M[lin-1][col-1] === "O") {
+      verificaJogada = 1;
+    }
+    return verificaJogada;
+  }
+  
+  function gerenciaJogador(M, jogador) {
+    let empate;
+    let jogadaExistente = 0;
+    let posicaoIncorreta = 0;
+    let resultadoVerificacao = "";
+    let lin, col;
+    
+    alert("Você é o jogador " + jogador + "!!\nSua marcação é representada por um 'X'");
+    
+    do {
+
+      lin = +prompt("Jogador " + jogador + "\nDigite uma linha para a jogada: ");
+      col = +prompt("Jogador " + jogador + "\nDigite uma coluna para a jogada: ");
+      
+      posicaoIncorreta = verificaPosicaoIncorreta(lin, col);
+      if(posicaoIncorreta == 1) {
+        alert("Insira somente valores de linha e coluna entre 1 e 3\nInsira novos valores!");
+      } else {
+        jogadaExistente = verificaJogadaExistente(M, lin, col);
+        if(jogadaExistente) {
+          alert("A posição escolhida para a jogada já está ocupada!\nInsira novos valores!");
+        }
+      }
+    
+    } while((posicaoIncorreta == 1) || (jogadaExistente == 1))
+    
+    montaMatrizIntermediaria(M, jogador, lin, col);
+    
+    resultadoVerificacao = verificaGanhador(M, jogador);
+    if(resultadoVerificacao !== "") {
+      alert(resultadoVerificacao);
+      imprimeMatriz(M);
+      return 1;
+    }
+    
+    imprimeMatriz(M);
+    
+    empate = verificaEmpate(M);
+    if(empate == 1) {
+      alert("O jogo da velha empatou!\nParabéns aos dois jogadores!");
+      imprimeMatriz(M);
+      return 1;
+    }  
+  }
+  
+  function selecionaJogadaDoPc(M) {
+    // Verifica posicoes disponíveis na matriz
+    let posicoesDisponiveis = [];
+    for (let lin=0; lin<3; lin+=1) {
+      for (let col=0; col<3; col+=1) {
+        if(M[lin][col] === "#") {
+          posicoesDisponiveis.push([lin, col]);
+        }
+      }
+    }
+    
+    // Escolhe uma posição aleatória entre as disponíveis
+    let posicaoAleatoria = posicoesDisponiveis[Math.floor(Math.random() * posicoesDisponiveis.length)];
+    
+    // Criar um vetor de tamanho 2 que contém a posição do jogada do Pc
+    let jogadaPc = [(posicaoAleatoria[0]+1), (posicaoAleatoria[1]+1)];
+    
+    // Retornar a jogada do Pc
+    return jogadaPc;
+  }
+  
+  function gerenciaJogadorPc(M, lin, col) {
+    let empate;
+    let resultadoVerificacao = "";
+    
+    alert("O Pc jogará agora!\nSua marcação é representada por um 'O'!");
+    
+    montaMatrizIntermediaria(M, 2, lin, col);
+    
+    resultadoVerificacao = verificaGanhador(M, "Pc");
+    if(resultadoVerificacao !== "") {
+      alert(resultadoVerificacao);
+      imprimeMatriz(M);
+      return 1;
+    }
+    
+    imprimeMatriz(M);
+    
+    empate = verificaEmpate(M);
+    if(empate == 1) {
+      alert("O jogo da velha empatou!\nParabéns aos dois jogadores!");
+      imprimeMatriz(M);
+      return 1;
+    }  
+  }
+  
+  function modoMultiplayer(M) {
+    let jogador;
+    let jogoFinalizado = 0;
+  
+    for (let i=2; i<15; i+=1) {
+      jogador = ((i % 2) + 1);
+      jogoFinalizado = gerenciaJogador(M, jogador);
+      if (jogoFinalizado === 1) {
+        break;
+      }
+    }
+  }
+  
+  function modoSingleplayer(M) {
+    let jogador;
+    let jogoFinalizado = 0;
+  
+    for (let i=2; i<15; i+=1) {
+      let jogadaPc = [];
+      jogador = ((i % 2) + 1);
+      if (jogador == 1) {
+        jogoFinalizado = gerenciaJogador(M, jogador);
+        if (jogoFinalizado === 1) {
+          break;
+        }
+      } 
+      else {
+        jogadaPc = selecionaJogadaDoPc(M);
+        jogoFinalizado = gerenciaJogadorPc(M, jogadaPc[0], jogadaPc[1]);
+        if (jogoFinalizado === 1) {
+          break;
+        }
+      }      
+    }
+  }
+  
+  function exibeMenu() {
+    alert("=>=>=> BEM-VINDO(A) AO JOGO DA VELHA! <=<=<=\n\nSelecione um modo de jogo:\n\n[1] SiglePlayer\n[2] Multiplayer\n\n[3] Sair do jogo");
+  }
+  
+  function analisaMenu(opcao) {
+    let M = montaMatrizInicial();
+    switch (opcao) {
+      case 1:
+        imprimeMatriz(M);
+        modoSingleplayer(M);
+        break;
+      case 2:
+        imprimeMatriz(M);
+        modoMultiplayer(M);
+        break;
+      case 3:
+        alert("Saindo do jogo . . .");
+        break;
+      default:
+        alert("Escolha uma opção válida!");
+        break;
+    }
+  }
+  
+  function iniciaJogo() {
+    let opcao = 0;
+    do {
+      exibeMenu();
+      opcao = +prompt("Digite a opção desejada: ");
+      analisaMenu(opcao);
+    } while (opcao !== 3);
+  }
+  
+  iniciaJogo();
+        
+</script>
