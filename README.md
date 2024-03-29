@@ -14,7 +14,7 @@ O jogo possui dois modos
 # Posições das Jogadas no Tabuleiro (Matriz)
 
 - As linhas são representadas por números de 1 a 3 de cima para baixo
-- As colunas são representadas por números de 1 a 3 de da esquerda para direita
+- As colunas são representadas por números de 1 a 3 de da esquerda para direita <br/>
 Veja a representação a seguir:
 
 % % % -> (1,1) (1,2) (1,3) <br/>
@@ -23,28 +23,28 @@ Veja a representação a seguir:
 
 # Jogadas Ganhadoras
 
-- Para ganhar é necessário completar uma linha com jogadas de um mesmo jogador
+- Para ganhar é necessário completar uma linha com jogadas de um mesmo jogador <br/>
 Exemplo de Usuário 1 (Jogador 1) ganhando pela 3° linha.
 
 % % % <br/>
 % % % <br/>
 X X X <br/>
 
-- Para ganhar é necessário completar uma coluna com jogadas de um mesmo jogador
+- Para ganhar é necessário completar uma coluna com jogadas de um mesmo jogador <br/>
 Exemplo de Usuário 2 (Jogador 2) ganhando pela 3° linha.
 
 % % O <br/>
 % % O <br/>
 % % O <br/>
 
-- Para ganhar é necessário completar a diagonal principal com jogadas de um mesmo jogador
+- Para ganhar é necessário completar a diagonal principal com jogadas de um mesmo jogador <br/>
 Exemplo de Usuário 1 (Jogador 1) ganhando pela diagonal principal.
 
 X % % <br/>
 % X % <br/>
 % % X <br/>
 
-- Para ganhar é necessário completar a diagonal secundária com jogadas de um mesmo jogador
+- Para ganhar é necessário completar a diagonal secundária com jogadas de um mesmo jogador <br/>
 Exemplo de Usuário 2 (Jogador 2) ganhando pela diagonal secundária.
 
 % % O <br/>
@@ -53,6 +53,6 @@ O % % <br/>
 
 # Para sair do Jogo da Velha
 
-A partida deve ser finalizada e o jogo retornará para o menu principal
+A partida deve ser finalizada e o jogo retornará para o menu principal <br/>
 - A opção 3 fecherá o jogo da velha. . . 
 
