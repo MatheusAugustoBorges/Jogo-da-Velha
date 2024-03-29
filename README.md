@@ -4,7 +4,7 @@ Se trata de um jogo da velha desenvolvido em javascript.
 O jogo possui dois modos
 
 - SinglePlayer: Usuário X Computador -> Opção 1 do Menu Principal
-- Multiplayer: Usuário 1 X Usuário 2 -> Opção 3 do Menu Principal
+- Multiplayer: Usuário 1 X Usuário 2 -> Opção 2 do Menu Principal
 
 # Representação dos Jogadores
 
