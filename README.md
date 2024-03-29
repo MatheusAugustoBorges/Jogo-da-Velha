@@ -1,7 +1,12 @@
 ## Jogo-da-Velha
 Se trata de um jogo da velha desenvolvido em javascript.
 
-O jogo possui dois modos
+# Rodando o Jogo da Velha. . . 
+
+- Para rodar o jogo, basta clonar esse reposítório e executar o arquivo 'jogo-da-velha.html'.
+- Para execução do arquivo, após clonar o reposítório você pode abrir a pasta baixada e executar em seu navegador o arquivo acima. 
+
+# Modos de Jogo da Velha
 
 - SinglePlayer: Usuário X Computador -> Opção 1 do Menu Principal
 - Multiplayer: Usuário 1 X Usuário 2 -> Opção 2 do Menu Principal
