@@ -17,9 +17,9 @@ O jogo possui dois modos
 - As colunas são representadas por números de 1 a 3 de da esquerda para direita
 Veja a representação a seguir:
 
-% % % -> (1,1) (1,2) (1,3) \n
-% % % -> (2,1) (2,2) (2,3)
-% % % -> (3,1) (3,2) (3,3)
+% % % -> (1,1) (1,2) (1,3) \**
+% % % -> (2,1) (2,2) (2,3) \**
+% % % -> (3,1) (3,2) (3,3) \**
 
 # Jogadas Ganhadoras
 
