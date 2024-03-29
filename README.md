@@ -28,7 +28,7 @@ Exemplo de Usuário 1 (Jogador 1) ganhando pela 3° linha.
 
 % % % <br/>
 % % % <br/>
-X X X <br/>
+X  X  X <br/>
 
 - Para ganhar é necessário completar uma coluna com jogadas de um mesmo jogador
 Exemplo de Usuário 2 (Jogador 2) ganhando pela 3° linha.
